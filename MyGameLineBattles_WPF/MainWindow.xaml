@@ -1,0 +1,177 @@
+﻿<Window x:Class="MyGameLineBattles_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyGameLineBattles_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        
+         Height="900" Width="1600" WindowState="Maximized" Background="{x:Null}">
+
+    <Grid x:Name="gridMainBackground">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="900" />
+            <!--  Exact Height... won't resize -->
+            <!--<RowDefinition Height="Auto" />
+                Will resize to the size of contents -->
+            <!--<<<<RowDefinition Height="*" />
+                Will resize taking all remaining space -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1600"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.ZIndex ="1" x:Name="background" HorizontalAlignment="Left" Source="Resources\stonyBackground.png" Margin="0,771,0,8" Width="1089" Stretch="Fill"/>
+        <Label Grid.ZIndex ="-1" x:Name="backDefault" HorizontalAlignment="Left" Margin="0,226,0,129" Width="1089">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0097FF"/>
+                    <GradientStop Color="#FF125F01" Offset="1"/>
+                    <GradientStop Color="#FF3B8F00" Offset="0.149"/>
+                    <GradientStop Color="#FF00760B" Offset="0.284"/>
+                    <GradientStop Color="#FF368300" Offset="0.749"/>
+                    <GradientStop Color="#FF22886A" Offset="0.127"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <GroupBox x:Name="GameMenuBox" Grid.ZIndex="0" HorizontalAlignment="Left" Height="226" VerticalAlignment="Top" Width="1089" FontSize="16" FontWeight="Bold">
+            <GroupBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2F8BA6" Offset="0"/>
+                    <GradientStop Color="#FF284876" Offset="1"/>
+                </LinearGradientBrush>
+            </GroupBox.Background>
+            <Grid>
+                <Image Grid.ZIndex ="1" x:Name="defendersBannerImage" HorizontalAlignment="Left" Height="96" Margin="457,10,0,0" VerticalAlignment="Top" Width="146" Source="Resources\blueFlagWPF.png" RenderTransformOrigin="0.9,-3.557"/>
+                <Button x:Name="startBattleButton" Content="Start battle of" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="273" Height="36" Click="startBattleButton_Click" Focusable="False"/>
+                <Button x:Name="worldMapButton" Content="World Map" HorizontalAlignment="Left" Margin="0,166,0,0" VerticalAlignment="Top" Width="273" Height="36" Focusable="False" Foreground="#FFAE12DC" Click="worldMapButton_Click"/>
+
+                <Button x:Name="BuyRecruitDefenderButton" Content="Hire recruit (50g)" HorizontalAlignment="Left" Margin="291,8,0,0" VerticalAlignment="Top" Width="160" Height="38" Focusable="False" Click="BuyRecruitDefenderButton_Click"/>
+                <Button x:Name="BuyDefenderButton" Content="Hire fusilier (200g)" HorizontalAlignment="Left" Margin="291,46,0,0" VerticalAlignment="Top" Width="160" Height="38" Click="BuyDefenderButton_Click" Focusable="False" RenderTransformOrigin="0.499,0.684"/>
+                <Button x:Name="BuyEliteDefenderButton" Content="Hire grenadier(500g)" HorizontalAlignment="Left" Margin="291,84,0,0" VerticalAlignment="Top" Width="160" Height="38" Click="BuyEliteDefenderButton_Click" Focusable="False"/>
+                <Button x:Name="BuyGeneralDefenderButton" Content="Hire general (600g)" HorizontalAlignment="Left" Margin="291,122,0,0" VerticalAlignment="Top" Width="160" Height="38" Focusable="False" Click="BuyGeneralDefenderButton_Click"/>
+                <Button x:Name="BuyCannonDefenderButton" Content="Buy Cannon (750g)" HorizontalAlignment="Left" Margin="454,122,0,0" VerticalAlignment="Top" Width="149" Height="38" Focusable="False" Click="BuyCannonDefenderButton_Click"/>
+                <Button x:Name="TrainDefenders" Content="Train (1 Ex)" HorizontalAlignment="Left" Margin="608,150,0,0" VerticalAlignment="Top" Width="121" Height="33" Click="TrainDefenders_Click" Focusable="False"/>
+                <Button x:Name="RemoveDefenders" Content="Remove" HorizontalAlignment="Left" Margin="729,150,0,0" VerticalAlignment="Top" Width="121" Height="33" Click="RemoveDefenders_Click" Focusable="False"/>
+                <Button x:Name="TrainDefendersMorale" Content="Morale+5(2 Ex)" HorizontalAlignment="Left" Margin="729,183,0,0" VerticalAlignment="Top" Width="121" Height="33" Focusable="False" Click="TrainDefendersMorale_Click"/>
+                <Button x:Name="PromoteDefenders" Content="Promote (50B)" HorizontalAlignment="Left" Margin="608,183,0,0" VerticalAlignment="Top" Width="121" Height="33" Focusable="False" Click="PromoteDefenders_Click"/>
+                <Button x:Name="TrainCannon" Content="Train (3 Ex)" HorizontalAlignment="Left" Margin="855,150,0,0" VerticalAlignment="Top" Width="121" Height="33" Focusable="False" Click="TrainCannon_Click"/>
+                <Button x:Name="RepairCannon" Content="Repair (50g)" HorizontalAlignment="Left" Margin="855,183,0,0" VerticalAlignment="Top" Width="121" Height="33" Focusable="False" Click="RepairCannon_Click"/>
+                <Button x:Name="DeleteCannon" Content="Remove" HorizontalAlignment="Left" Margin="976,150,0,0" VerticalAlignment="Top" Width="101" Height="33" Focusable="False" Click="DeleteCannon_Click"/>
+                <Button x:Name="MoveToReserve" Content="To reserve" HorizontalAlignment="Left" Margin="976,183,0,0" VerticalAlignment="Top" Width="101" Height="33" Focusable="False" Click="MoveToReserve_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF00F3FF" Offset="0"/>
+                            <GradientStop Color="#FF00649C" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="RemoveReserver" HorizontalAlignment="Left" Margin="291,197,0,0" VerticalAlignment="Top" Width="41" Height="19" Focusable="False" Click="RemoveReserver_Click" RenderTransformOrigin="0.2,0.474">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="Red" Offset="0"/>
+                            <GradientStop Color="#FF950303" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Label x:Name="PlayerMoney" Content="Player Money" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Width="297" FontSize="20" Foreground="#FFFFAE00" Height="117" FontWeight="Bold"/>
+                <Label x:Name="DefenderStatsLabel" Grid.ZIndex ="-1" Content="Let's hire some men !" HorizontalAlignment="Left" Margin="608,33,0,0" VerticalAlignment="Top" Width="454" FontSize="20" Foreground="Black" Height="117" FontWeight="Bold">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFCBAF86" Offset="0"/>
+                            <GradientStop Color="#FF836841" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="cannonInfoLabel" Content ="No Cannon" Margin="855,0,15,75" FontSize="20"></Label>
+                <ComboBox x:Name="DefendersList" Margin="608,3,227,187" SelectionChanged="updateDefenderStatsLabel" GotFocus="DefendersListGotFocus"></ComboBox>
+                <ComboBox x:Name="DefendersReserveList" Margin="291,167,474,23" GotFocus="ReserveListGotFocus">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF00F3FF" Offset="0"/>
+                            <GradientStop Color="#FF013E87" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+
+        <Button x:Name="saveGameButton" Content="Save game" HorizontalAlignment="Left" Margin="0,734,0,0" VerticalAlignment="Top" Width="142" Height="32" Focusable="False" Click="saveGameButton_Click"/>
+        <Button x:Name="loadGameButton" Content="Load game" HorizontalAlignment="Left" Margin="149,734,0,0" VerticalAlignment="Top" Width="142" Height="32" Focusable="False" Click="loadGameButton_Click"/>
+        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="968,734,0,0" VerticalAlignment="Top" Width="121" Height="32" Click="ExitButton_Click" FontWeight="Bold" Focusable="False" FontSize="18"/>
+        <Button x:Name="MusicFuncButton" Content="Music On/Of" HorizontalAlignment="Left" Margin="844,735,0,0" VerticalAlignment="Top" Width="119" Height="31" FontWeight="Bold" Focusable="False" Click="MusicFuncButton_Click"/>
+
+        <Image x:Name="warrior1Picture" HorizontalAlignment="Left" Height="70" Margin="102,256,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior2Picture" HorizontalAlignment="Left" Height="70" Margin="102,308,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior3Picture" HorizontalAlignment="Left" Height="70" Margin="102,360,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior4Picture" HorizontalAlignment="Left" Height="70" Margin="102,412,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior5Picture" HorizontalAlignment="Left" Height="70" Margin="102,464,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior6Picture" HorizontalAlignment="Left" Height="70" Margin="102,516,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior7Picture" HorizontalAlignment="Left" Height="70" Margin="27,243,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior8Picture" HorizontalAlignment="Left" Height="70" Margin="27,295,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior9Picture" HorizontalAlignment="Left" Height="70" Margin="27,347,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior10Picture" HorizontalAlignment="Left" Height="70" Margin="27,399,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior11Picture" HorizontalAlignment="Left" Height="70" Margin="27,451,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+        <Image x:Name="warrior12Picture" HorizontalAlignment="Left" Height="70" Margin="27,503,0,0" VerticalAlignment="Top" Width="70" Source="Resources\BlueDefenderF.png"/>
+
+        <Image x:Name="enemy1Picture" HorizontalAlignment="Left" Height="70" Margin="844,256,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy2Picture" HorizontalAlignment="Left" Height="70" Margin="844,308,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy3Picture" HorizontalAlignment="Left" Height="70" Margin="844,360,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy4Picture" HorizontalAlignment="Left" Height="70" Margin="844,412,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy5Picture" HorizontalAlignment="Left" Height="70" Margin="844,464,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy6Picture" HorizontalAlignment="Left" Height="70" Margin="844,516,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy7Picture" HorizontalAlignment="Left" Height="70" Margin="919,243,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy8Picture" HorizontalAlignment="Left" Height="70" Margin="919,295,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy9Picture" HorizontalAlignment="Left" Height="70" Margin="919,347,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy10Picture" HorizontalAlignment="Left" Height="70" Margin="919,399,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy11Picture" HorizontalAlignment="Left" Height="70" Margin="919,451,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+        <Image x:Name="enemy12Picture" HorizontalAlignment="Left" Height="70" Margin="919,503,0,0" VerticalAlignment="Top" Width="70" Source="Resources\RedEnemyF.png"/>
+
+        <Button x:Name="firingButton" Content="Fire !" HorizontalAlignment="Left" Margin="329,711,0,0" VerticalAlignment="Top" Width="250" Height="32" Click="firingButton_Click" BorderBrush="#FF020000" FontSize="18" FontWeight="Bold" IsEnabledChanged="firingButton_IsEnabledChanged" Focusable="False">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFFF4E1A" Offset="0"/>
+                    <GradientStop Color="#FF950000" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image x:Name="firingCloudImage" Grid.ZIndex ="1" HorizontalAlignment="Left" Height="154" Margin="34,350,0,0" VerticalAlignment="Top" Width="324" Source="Resources\firingCloud.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="justEffectCounterLabel" Content="Enemies" HorizontalAlignment="Left" Margin="536,243,0,0" VerticalAlignment="Top" Width="300" FontSize="16" FontWeight="Bold" Foreground="#FF830F0F" Height="343"/>
+        <Label x:Name="defendersLabel" Content="Defenders" HorizontalAlignment="Left" Margin="236,243,0,0" VerticalAlignment="Top" Width="300" FontSize="16" FontWeight="Bold" Foreground="#FF001AC1" Background="{x:Null}" Height="343"/>
+
+        <Button x:Name="endBattleRetreat" Content="Retreat! (-100g)" HorizontalAlignment="Left" Margin="584,711,0,0" VerticalAlignment="Top" Width="250" Height="32" BorderBrush="#FF020000" FontSize="18" FontWeight="Bold" Click="endBattleRetreat_Click" Focusable="False"/>
+
+        <Label x:Name="belligerentsData" Content="Belligerents Data" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Width="503" Height="892" FontSize="14" Margin="1089,0,0,0" BorderThickness="3" BorderBrush="#FFD5DFEF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCBAF86" Offset="0"/>
+                    <GradientStop Color="#FFB0884F" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <Button x:Name="cannonFireButton" Content="Fire cannon!" HorizontalAlignment="Left" Margin="0,690,0,0" VerticalAlignment="Top" Width="142" Height="32" RenderTransformOrigin="0.5,1.027" Click="cannonFireButton_Click" FontSize="18" FontWeight="Bold" Focusable="False">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFECDD4F" Offset="0"/>
+                    <GradientStop Color="#FF1F1F1F" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image x:Name="cannonPicture" HorizontalAlignment="Left" Height="80" Margin="27,610,0,0" VerticalAlignment="Top" Width="140" Source="Resources\BlueDefenderCannon.png" MouseLeftButtonDown="moveCannonClick"/>
+        <Image x:Name="enemyCannonPicture" HorizontalAlignment="Left" Height="120" Margin="849,610,0,0" VerticalAlignment="Top" Width="140" Source="Resources/RedEnemyCannon.png"/>
+
+    </Grid>
+</Window>

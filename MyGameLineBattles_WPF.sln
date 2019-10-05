@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGameLineBattles_WPF", "MyGameLineBattles_WPF\MyGameLineBattles_WPF.csproj", "{359A34FB-920D-4346-B412-DB88A7A29AA0}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GeldoniaLineBattles", "GeldoniaLineBattles\GeldoniaLineBattles.vdproj", "{3F366192-155E-4203-B878-8908BCD71548}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{359A34FB-920D-4346-B412-DB88A7A29AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359A34FB-920D-4346-B412-DB88A7A29AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359A34FB-920D-4346-B412-DB88A7A29AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359A34FB-920D-4346-B412-DB88A7A29AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F366192-155E-4203-B878-8908BCD71548}.Debug|Any CPU.ActiveCfg = Debug
+		{3F366192-155E-4203-B878-8908BCD71548}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDDD7837-DB53-44AA-9435-B070FD6E5C0C}
+	EndGlobalSection
+EndGlobal
